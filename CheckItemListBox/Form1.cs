@@ -69,5 +69,19 @@ namespace CheckItemListBox
             }
             MessageBox.Show("Total Price For Prospectus is " + price);
         }
+
+        private void OpenGalbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if(openFile.ShowDialog()== DialogResult.Cancel)
+            {
+                MessageBox.Show("Operation Canceled");
+            }
+            else
+            {
+                pictureBox1.Image = Image.FromFile(openFile.FileName);
+                this.Text = openFile.FileName;
+            }
+        }
     }
 }
